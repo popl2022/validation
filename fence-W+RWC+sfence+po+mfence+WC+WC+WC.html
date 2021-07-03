@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test W+RWC+sfence+po+mfence+WC+WC+WC</title>
+</head>
+<body>
+
+<h3><a id="tst@fence-W+RWC+sfence+po+mfence+WC+WC+WC">Test</a> <a href="fence-src/W+RWC+sfence+po+mfence+WC+WC+WC.litmus">W+RWC+sfence+po+mfence+WC+WC+WC</a></h3>
+<img src="fence-img/W+RWC+sfence+po+mfence+WC+WC+WC-00.png">
+<pre class="verbatim">X86_64 W+RWC+sfence+po+mfence+WC+WC+WC
+"SFencedWW Rfe PodRR Fre MFencedWR Fre"
+MT=x:WC y:WC z:WC
+Cycle=Rfe PodRR Fre MFencedWR Fre SFencedWW
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:z=T,2:z=F,2:x=T
+Com=Rf Fr Fr
+Orig=SFencedWW Rfe PodRR Fre MFencedWR Fre
+Align=
+{
+}
+ P0          | P1            | P2            ;
+ movl $1,(x) | movl (y),%eax | movl $1,(z)   ;
+ sfence      | movl (z),%ebx | mfence        ;
+ movl $1,(y) |               | movl (x),%eax ;
+exists (1:rax=1 /\ 1:rbx=0 /\ 2:rax=0)
+</pre></body>
+</html>

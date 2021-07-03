@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test CoRW2+NT+WC</title>
+</head>
+<body>
+
+<h3><a id="tst@co-CoRW2+NT+WC">Test</a> <a href="co-src/CoRW2+NT+WC.litmus">CoRW2+NT+WC</a></h3>
+<img src="co-img/CoRW2+NT+WC-00.png"> <img src="co-img/CoRW2+NT+WC-01.png"> <img src="co-img/CoRW2+NT+WC-02.png">
+<pre class="verbatim">X86_64 CoRW2+NT+WC
+"RfeNTNa PosRW CoeNaNT"
+MT=x:WC
+Cycle=PosRW CoeNaNT RfeNTNa
+Generator=diyone7 (version 7.56+02~dev)
+Com=Rf Co
+Orig=RfeNTNa PosRW CoeNaNT
+Align=
+{
+0:rax=x;
+}
+ P0                  | P1            ;
+ movl $1,%ebx        | movl (x),%eax ;
+ movntil %ebx,(%rax) | movl $2,(x)   ;
+exists 1:rax=2 /\ (x=2 \/ x=1) \/ 1:rax=1 /\ x=1
+</pre></body>
+</html>

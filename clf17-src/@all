@@ -1,0 +1,2 @@
+R+mfence+clflushopt+WT+WB.litmus
+SB+mfence+clflushopt+WT+WB.litmus

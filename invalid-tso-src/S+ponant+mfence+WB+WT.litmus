@@ -1,0 +1,16 @@
+X86_64 S+ponant+mfence+WB+WT
+"PodWWNaNT RfeNTNa MFencedRW Coe"
+MT=x:WB y:WT
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=W
+Com=Rf Co
+Orig=PodWWNaNT RfeNTNa MFencedRW Coe
+Align=
+{
+0:rax=y;
+}
+ P0                  | P1            ;
+ movl $2,(x)         | movl (y),%eax ;
+ movl $1,%ebx        | mfence        ;
+ movntil %ebx,(%rax) | movl $1,(x)   ;
+exists (1:rax=1 /\ x=2)

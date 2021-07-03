@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test S+posnant+pos+WC</title>
+</head>
+<body>
+
+<h3><a id="tst@co-S+posnant+pos+WC">Test</a> <a href="co-src/S+posnant+pos+WC.litmus">S+posnant+pos+WC</a></h3>
+<img src="co-img/S+posnant+pos+WC-00.png"> <img src="co-img/S+posnant+pos+WC-01.png"> <img src="co-img/S+posnant+pos+WC-02.png"> <img src="co-img/S+posnant+pos+WC-03.png">&#X2026;
+<pre class="verbatim">X86_64 S+posnant+pos+WC
+"PosWWNaNT RfeNTNa PosRW Coe"
+MT=x:WC
+Cycle=Coe PosWWNaNT RfeNTNa PosRW
+Generator=diyone7 (version 7.56+02~dev)
+Com=Rf Co
+Orig=PosWWNaNT RfeNTNa PosRW Coe
+Align=
+{
+0:rax=x;
+}
+ P0                  | P1            ;
+ movl $1,(x)         | movl (x),%eax ;
+ movl $2,%ebx        | movl $3,(x)   ;
+ movntil %ebx,(%rax) | movl (x),%ebx ;
+exists x=1 /\ (1:rax=0 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2 \/ 1:rbx=3) \/ 1:rax=1 /\ (1:rbx=3 \/ 1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0) \/ 1:rax=2 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2 \/ 1:rbx=3) \/ 1:rax=3 /\ (1:rbx=3 \/ 1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0)) \/ x=3 /\ (1:rax=3 /\ (1:rbx=3 \/ 1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0) \/ 1:rax=0 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2) \/ 1:rax=1 /\ (1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0) \/ 1:rax=2 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2)) \/ x=2 /\ (1:rax=2 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2 \/ 1:rbx=3) \/ 1:rax=3 /\ (1:rbx=3 \/ 1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0) \/ 1:rax=1 /\ (1:rbx=0 \/ 1:rbx=1) \/ 1:rax=0 /\ 1:rbx=0)
+</pre></body>
+</html>

@@ -1,0 +1,16 @@
+X86_64 WRW+2W+poss+NT+WB
+"RfeNTNa PosRW Coe PosWW CoeNaNT"
+MT=x:WB
+Cycle=Coe PosWW CoeNaNT RfeNTNa PosRW
+Generator=diyone7 (version 7.56+02~dev)
+Com=Rf Co Co
+Orig=RfeNTNa PosRW Coe PosWW CoeNaNT
+Align=
+{
+0:rax=x;
+}
+ P0                  | P1            | P2            ;
+ movl $1,%ebx        | movl (x),%eax | movl $3,(x)   ;
+ movntil %ebx,(%rax) | movl $2,(x)   | movl $4,(x)   ;
+                     | movl (x),%ebx | movl (x),%eax ;
+exists (1:rax=3 /\ 1:rbx=4 /\ 2:rax=1 /\ x=1)

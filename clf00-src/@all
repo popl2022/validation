@@ -1,0 +1,8 @@
+SB+clflushnexts+UC+UC.litmus
+SB+clflushnexts+WB+WB.litmus
+SB+clflushnexts+WC+WC.litmus
+SB+clflushnexts+WT+WT.litmus
+SB+clflushs+UC+UC.litmus
+SB+clflushs+WB+WB.litmus
+SB+clflushs+WC+WC.litmus
+SB+clflushs+WT+WT.litmus

@@ -1,0 +1,15 @@
+X86_64 WWC+poss+WT
+"Rfe PosRW Rfe PosRW Coe"
+MT=x:WT
+Cycle=Rfe PosRW Rfe PosRW Coe
+Generator=diyone7 (version 7.56+02~dev)
+Com=Rf Rf Co
+Orig=Rfe PosRW Rfe PosRW Coe
+Align=
+{
+}
+ P0          | P1            | P2            ;
+ movl $1,(x) | movl (x),%eax | movl (x),%eax ;
+             | movl $2,(x)   | movl $3,(x)   ;
+             |               | movl (x),%ebx ;
+exists x=3 /\ (1:rax=2 /\ (2:rax=0 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 2:rax=1 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3) \/ 2:rax=2 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 2:rax=3 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3)) \/ 1:rax=3 /\ (2:rax=0 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3) \/ 2:rax=1 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 2:rax=2 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3) \/ 2:rax=3 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0)) \/ 1:rax=0 /\ (2:rax=3 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 2:rax=0 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2) \/ 2:rax=1 /\ (2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 2:rax=2 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2)) \/ 1:rax=1 /\ (2:rax=3 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3) \/ 2:rax=0 /\ (2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 2:rax=1 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2) \/ 2:rax=2 /\ (2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0))) \/ x=1 /\ (1:rax=1 /\ (2:rax=0 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3) \/ 2:rax=1 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 2:rax=2 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3) \/ 2:rax=3 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0)) \/ 1:rax=2 /\ (2:rax=0 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 2:rax=1 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3) \/ 2:rax=2 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 2:rax=3 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3)) \/ 1:rax=3 /\ (2:rax=1 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3) \/ 2:rax=2 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 2:rax=3 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3) \/ 2:rax=0 /\ 2:rbx=0) \/ 1:rax=0 /\ (2:rax=1 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 2:rax=3 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3) \/ 2:rax=2 /\ (2:rbx=2 \/ 2:rbx=0) \/ 2:rax=0 /\ 2:rbx=0)) \/ x=2 /\ (1:rax=2 /\ (2:rax=0 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 2:rax=1 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3) \/ 2:rax=2 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 2:rax=3 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3)) \/ 2:rax=2 /\ (1:rax=0 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3) \/ 1:rax=1 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 1:rax=3 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3)) \/ 2:rax=3 /\ (1:rax=0 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0) \/ 1:rax=1 /\ (2:rbx=0 \/ 2:rbx=1 \/ 2:rbx=2 \/ 2:rbx=3) \/ 1:rax=3 /\ (2:rbx=3 \/ 2:rbx=2 \/ 2:rbx=1 \/ 2:rbx=0)) \/ 2:rax=1 /\ (2:rbx=0 /\ (1:rax=0 \/ 1:rax=1 \/ 1:rax=3) \/ 2:rbx=1 /\ (1:rax=3 \/ 1:rax=1 \/ 1:rax=0)) \/ 2:rax=0 /\ 2:rbx=0 /\ (1:rax=3 \/ 1:rax=1 \/ 1:rax=0))

@@ -1,0 +1,16 @@
+X86_64 MP+posntna+pos+WT
+"PosWWNTNa Rfe PosRR FreNaNT"
+MT=x:WT
+Cycle=Rfe PosRR FreNaNT PosWWNTNa
+Generator=diyone7 (version 7.56+02~dev)
+Com=Rf Fr
+Orig=PosWWNTNa Rfe PosRR FreNaNT
+Align=
+{
+0:rax=x;
+}
+ P0                  | P1            ;
+ movl $1,%ebx        | movl (x),%eax ;
+ movntil %ebx,(%rax) | movl (x),%ebx ;
+ movl $2,(x)         |               ;
+exists x=1 /\ (1:rax=0 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2) \/ 1:rax=1 /\ (1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0) \/ 1:rax=2 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2)) \/ x=2 /\ (1:rax=2 /\ (1:rbx=1 \/ 1:rbx=0) \/ 1:rax=1 /\ 1:rbx=0)

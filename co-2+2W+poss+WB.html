@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test 2+2W+poss+WB</title>
+</head>
+<body>
+
+<h3><a id="tst@co-2+2W+poss+WB">Test</a> <a href="co-src/2+2W+poss+WB.litmus">2+2W+poss+WB</a></h3>
+<img src="co-img/2+2W+poss+WB-00.png"> <img src="co-img/2+2W+poss+WB-01.png"> <img src="co-img/2+2W+poss+WB-02.png"> <img src="co-img/2+2W+poss+WB-03.png">&#X2026;
+<pre class="verbatim">X86_64 2+2W+poss+WB
+"PosWW Coe PosWW Coe"
+MT=x:WB
+Cycle=Coe PosWW Coe PosWW
+Generator=diyone7 (version 7.56+02~dev)
+Com=Co Co
+Orig=PosWW Coe PosWW Coe
+Align=
+{
+}
+ P0            | P1            ;
+ movl $1,(x)   | movl $3,(x)   ;
+ movl $2,(x)   | movl $4,(x)   ;
+ movl (x),%eax | movl (x),%eax ;
+exists x=1 /\ (0:rax=0 /\ (1:rax=0 \/ 1:rax=1 \/ 1:rax=2 \/ 1:rax=3 \/ 1:rax=4) \/ 0:rax=1 /\ (1:rax=4 \/ 1:rax=3 \/ 1:rax=2 \/ 1:rax=1 \/ 1:rax=0) \/ 0:rax=2 /\ (1:rax=0 \/ 1:rax=1 \/ 1:rax=2 \/ 1:rax=3 \/ 1:rax=4) \/ 0:rax=3 /\ (1:rax=4 \/ 1:rax=3 \/ 1:rax=2 \/ 1:rax=1 \/ 1:rax=0) \/ 0:rax=4 /\ (1:rax=0 \/ 1:rax=1 \/ 1:rax=2 \/ 1:rax=3 \/ 1:rax=4)) \/ x=3 /\ (0:rax=0 /\ (1:rax=4 \/ 1:rax=3 \/ 1:rax=2 \/ 1:rax=1 \/ 1:rax=0) \/ 0:rax=1 /\ (1:rax=0 \/ 1:rax=1 \/ 1:rax=2 \/ 1:rax=3 \/ 1:rax=4) \/ 0:rax=2 /\ (1:rax=4 \/ 1:rax=3 \/ 1:rax=2 \/ 1:rax=1 \/ 1:rax=0) \/ 0:rax=3 /\ (1:rax=0 \/ 1:rax=1 \/ 1:rax=2 \/ 1:rax=3 \/ 1:rax=4) \/ 0:rax=4 /\ (1:rax=4 \/ 1:rax=3 \/ 1:rax=2 \/ 1:rax=1 \/ 1:rax=0)) \/ x=2 /\ (0:rax=0 /\ (1:rax=0 \/ 1:rax=1 \/ 1:rax=2 \/ 1:rax=3 \/ 1:rax=4) \/ 0:rax=1 /\ (1:rax=4 \/ 1:rax=3 \/ 1:rax=2 \/ 1:rax=1 \/ 1:rax=0) \/ 0:rax=3 /\ (1:rax=0 \/ 1:rax=1 \/ 1:rax=2 \/ 1:rax=3 \/ 1:rax=4) \/ 0:rax=4 /\ (1:rax=4 \/ 1:rax=3 \/ 1:rax=2 \/ 1:rax=1 \/ 1:rax=0) \/ 0:rax=2 /\ (1:rax=0 \/ 1:rax=3)) \/ x=4 /\ (0:rax=0 /\ (1:rax=4 \/ 1:rax=3 \/ 1:rax=2 \/ 1:rax=1 \/ 1:rax=0) \/ 0:rax=1 /\ (1:rax=0 \/ 1:rax=1 \/ 1:rax=2 \/ 1:rax=3 \/ 1:rax=4) \/ 0:rax=2 /\ (1:rax=3 \/ 1:rax=2 \/ 1:rax=1 \/ 1:rax=0) \/ 0:rax=3 /\ (1:rax=0 \/ 1:rax=1 \/ 1:rax=2 \/ 1:rax=3) \/ 0:rax=4 /\ (1:rax=3 \/ 1:rax=2 \/ 1:rax=1 \/ 1:rax=0))
+</pre></body>
+</html>

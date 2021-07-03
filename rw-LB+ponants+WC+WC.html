@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test LB+ponants+WC+WC</title>
+</head>
+<body>
+
+<h3><a id="tst@rw-LB+ponants+WC+WC">Test</a> <a href="rw-src/LB+ponants+WC+WC.litmus">LB+ponants+WC+WC</a></h3>
+<img src="rw-img/LB+ponants+WC+WC-00.png">
+<pre class="verbatim">X86_64 LB+ponants+WC+WC
+"PodRWNaNT RfeNTNa PodRWNaNT RfeNTNa"
+MT=x:WC y:WC
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=W
+Com=Rf Rf
+Orig=PodRWNaNT RfeNTNa PodRWNaNT RfeNTNa
+Align=
+{
+0:rbx=y;
+1:rbx=x;
+}
+ P0                  | P1                  ;
+ movl (x),%eax       | movl (y),%eax       ;
+ movl $1,%ecx        | movl $1,%ecx        ;
+ movntil %ecx,(%rbx) | movntil %ecx,(%rbx) ;
+exists (0:rax=1 /\ 1:rax=1)
+</pre></body>
+</html>

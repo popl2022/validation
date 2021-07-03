@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test CoRR+WC</title>
+</head>
+<body>
+
+<h3><a id="tst@co-CoRR+WC">Test</a> <a href="co-src/CoRR+WC.litmus">CoRR+WC</a></h3>
+<img src="co-img/CoRR+WC-00.png">
+<pre class="verbatim">X86_64 CoRR+WC
+"Rfe PosRR Fre"
+MT=x:WC
+Cycle=Rfe PosRR Fre
+Generator=diyone7 (version 7.56+02~dev)
+Com=Rf Fr
+Orig=Rfe PosRR Fre
+Align=
+{
+}
+ P0          | P1            ;
+ movl $1,(x) | movl (x),%eax ;
+             | movl (x),%ebx ;
+exists 1:rax=1 /\ 1:rbx=0 /\ x=1
+</pre></body>
+</html>

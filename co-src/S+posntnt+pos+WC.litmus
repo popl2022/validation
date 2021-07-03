@@ -1,0 +1,17 @@
+X86_64 S+posntnt+pos+WC
+"PosWWNTNT RfeNTNa PosRW CoeNaNT"
+MT=x:WC
+Cycle=PosRW CoeNaNT PosWWNTNT RfeNTNa
+Generator=diyone7 (version 7.56+02~dev)
+Com=Rf Co
+Orig=PosWWNTNT RfeNTNa PosRW CoeNaNT
+Align=
+{
+0:rax=x;
+}
+ P0                  | P1            ;
+ movl $1,%ebx        | movl (x),%eax ;
+ movntil %ebx,(%rax) | movl $3,(x)   ;
+ movl $2,%ecx        | movl (x),%ebx ;
+ movntil %ecx,(%rax) |               ;
+exists x=1 /\ (1:rax=0 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2 \/ 1:rbx=3) \/ 1:rax=1 /\ (1:rbx=3 \/ 1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0) \/ 1:rax=2 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2 \/ 1:rbx=3) \/ 1:rax=3 /\ (1:rbx=3 \/ 1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0)) \/ x=3 /\ (1:rax=3 /\ (1:rbx=3 \/ 1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0) \/ 1:rax=0 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2) \/ 1:rax=1 /\ (1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0) \/ 1:rax=2 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2)) \/ x=2 /\ (1:rax=2 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2 \/ 1:rbx=3) \/ 1:rax=3 /\ (1:rbx=3 \/ 1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0) \/ 1:rax=1 /\ (1:rbx=0 \/ 1:rbx=1) \/ 1:rax=0 /\ 1:rbx=0)

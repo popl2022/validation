@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test SB+UC+UC</title>
+</head>
+<body>
+
+<h3><a id="tst@wruc-SB+UC+UC">Test</a> <a href="wruc-src/SB+UC+UC.litmus">SB+UC+UC</a></h3>
+<img src="wruc-img/SB+UC+UC-00.png">
+<pre class="verbatim">X86_64 SB+UC+UC
+"PodWR Fre PodWR Fre"
+MT=x:UC y:UC
+Cycle=Fre PodWR Fre PodWR
+Generator=diycross7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=T,1:y=F,1:x=T
+Com=Fr Fr
+Orig=PodWR Fre PodWR Fre
+Align=
+{
+}
+ P0            | P1            ;
+ movl $1,(x)   | movl $1,(y)   ;
+ movl (y),%eax | movl (x),%eax ;
+exists (0:rax=0 /\ 1:rax=0)
+</pre></body>
+</html>

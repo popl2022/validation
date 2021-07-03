@@ -1,0 +1,15 @@
+X86_64 LB+WT+WT
+"PodRW Rfe PodRW Rfe"
+MT=x:WT y:WT
+Cycle=Rfe PodRW Rfe PodRW
+Generator=diycross7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=W
+Com=Rf Rf
+Orig=PodRW Rfe PodRW Rfe
+Align=
+{
+}
+ P0            | P1            ;
+ movl (x),%eax | movl (y),%eax ;
+ movl $1,(y)   | movl $1,(x)   ;
+exists (0:rax=1 /\ 1:rax=1)

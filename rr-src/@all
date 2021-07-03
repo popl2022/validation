@@ -1,0 +1,17 @@
+MP+mfence+po.litmus
+MP+mfence+po+UC+UC.litmus
+MP+mfence+po+UC+WB.litmus
+MP+mfence+po+UC+WC.litmus
+MP+mfence+po+UC+WT.litmus
+MP+mfence+po+WB+UC.litmus
+MP+mfence+po+WB+WB.litmus
+MP+mfence+po+WB+WC.litmus
+MP+mfence+po+WB+WT.litmus
+MP+mfence+po+WC+UC.litmus
+MP+mfence+po+WC+WB.litmus
+MP+mfence+po+WC+WC.litmus
+MP+mfence+po+WC+WT.litmus
+MP+mfence+po+WT+UC.litmus
+MP+mfence+po+WT+WB.litmus
+MP+mfence+po+WT+WC.litmus
+MP+mfence+po+WT+WT.litmus

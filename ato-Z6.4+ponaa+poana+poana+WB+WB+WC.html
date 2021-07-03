@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test Z6.4+ponaa+poana+poana+WB+WB+WC</title>
+</head>
+<body>
+
+<h3><a id="tst@ato-Z6.4+ponaa+poana+poana+WB+WB+WC">Test</a> <a href="ato-src/Z6.4+ponaa+poana+poana+WB+WB+WC.litmus">Z6.4+ponaa+poana+poana+WB+WB+WC</a></h3>
+<img src="ato-img/Z6.4+ponaa+poana+poana+WB+WB+WC-00.png">
+<pre class="verbatim">X86_64 Z6.4+ponaa+poana+poana+WB+WB+WC
+"PodWWNaA CoeAA PodWRANa FreNaA PodWRANa Fre"
+MT=x:WB,y:WB,z:WC
+Cycle=Fre PodWWNaA CoeAA PodWRANa FreNaA PodWRANa
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:z=T,2:z=F,2:x=T
+Com=Co Fr Fr
+Orig=PodWWNaA CoeAA PodWRANa FreNaA PodWRANa Fre
+Align=
+{
+}
+ P0             | P1             | P2             ;
+ movl $1,(x)    | movl $2,%eax   | movl $1,%eax   ;
+ movl $1,%eax   | xchgl (y),%eax | xchgl (z),%eax ;
+ xchgl (y),%eax | movl (z),%ebx  | movl (x),%ebx  ;
+exists (y=2 /\ z=1 /\ 0:rax=0 /\ 1:rax=1 /\ 1:rbx=0 /\ 2:rax=0 /\ 2:rbx=0)
+</pre></body>
+</html>

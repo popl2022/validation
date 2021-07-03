@@ -1,0 +1,15 @@
+X86_64 CoRR+NT+WT
+"RfeNTNa PosRR FreNaNT"
+MT=x:WT
+Cycle=PosRR FreNaNT RfeNTNa
+Generator=diyone7 (version 7.56+02~dev)
+Com=Rf Fr
+Orig=RfeNTNa PosRR FreNaNT
+Align=
+{
+0:rax=x;
+}
+ P0                  | P1            ;
+ movl $1,%ebx        | movl (x),%eax ;
+ movntil %ebx,(%rax) | movl (x),%ebx ;
+exists 1:rax=1 /\ 1:rbx=0 /\ x=1

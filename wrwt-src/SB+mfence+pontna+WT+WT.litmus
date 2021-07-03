@@ -1,0 +1,16 @@
+X86_64 SB+mfence+pontna+WT+WT
+"MFencedWR FreNaNT PodWRNTNa Fre"
+MT=x:WT y:WT
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=T,1:y=F,1:x=T
+Com=Fr Fr
+Orig=MFencedWR FreNaNT PodWRNTNa Fre
+Align=
+{
+1:rax=y;
+}
+ P0            | P1                  ;
+ movl $1,(x)   | movl $1,%ebx        ;
+ mfence        | movntil %ebx,(%rax) ;
+ movl (y),%eax | movl (x),%ecx       ;
+exists (0:rax=0 /\ 1:rcx=0)

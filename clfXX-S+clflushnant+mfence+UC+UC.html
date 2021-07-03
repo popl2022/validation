@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test S+clflushnant+mfence+UC+UC</title>
+</head>
+<body>
+
+<h3><a id="tst@clfXX-S+clflushnant+mfence+UC+UC">Test</a> <a href="clfXX-src/S+clflushnant+mfence+UC+UC.litmus">S+clflushnant+mfence+UC+UC</a></h3>
+<img src="clfXX-img/S+clflushnant+mfence+UC+UC-00.png">
+<pre class="verbatim">X86_64 S+clflushnant+mfence+UC+UC
+"ClFlushdWWNaNT RfeNTNa MFencedRW Coe"
+MT=x:UC y:UC
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=W
+Com=Rf Co
+Orig=ClFlushdWWNaNT RfeNTNa MFencedRW Coe
+Align=
+{
+0:rax=y;
+}
+ P0                  | P1            ;
+ movl $2,(x)         | movl (y),%eax ;
+ clflush (x)         | mfence        ;
+ movl $1,%ebx        | movl $1,(x)   ;
+ movntil %ebx,(%rax) |               ;
+exists (x=2 /\ 1:rax=1)
+</pre></body>
+</html>

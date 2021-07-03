@@ -1,0 +1,12 @@
+X86_64 CMPXCHG-OK-UNLOCK
+{
+int x;
+int y;
+0:rbx=2;
+}
+
+ P0               | P1             ;
+ movl $1,(x)      | movl $1,(y)    ;
+ cmpxchg (z),%ebx | mfence         ;
+ movl (y),%ecx    | movl (x),%ecx  ;
+exists (z=2 /\ 0:rcx=0 /\ 1:rcx=0)

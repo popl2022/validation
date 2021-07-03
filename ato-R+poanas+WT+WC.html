@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test R+poanas+WT+WC</title>
+</head>
+<body>
+
+<h3><a id="tst@ato-R+poanas+WT+WC">Test</a> <a href="ato-src/R+poanas+WT+WC.litmus">R+poanas+WT+WC</a></h3>
+<img src="ato-img/R+poanas+WT+WC-00.png">
+<pre class="verbatim">X86_64 R+poanas+WT+WC
+"PodWWANa CoeNaA PodWRANa FreNaA"
+MT=x:WT,y:WC
+Cycle=FreNaA PodWWANa CoeNaA PodWRANa
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=T
+Com=Co Fr
+Orig=PodWWANa CoeNaA PodWRANa FreNaA
+Align=
+{
+}
+ P0             | P1             ;
+ movl $1,%eax   | movl $2,%eax   ;
+ xchgl (x),%eax | xchgl (y),%eax ;
+ movl $1,(y)    | movl (x),%ebx  ;
+exists (x=1 /\ y=2 /\ 0:rax=0 /\ 1:rax=1 /\ 1:rbx=0)
+</pre></body>
+</html>

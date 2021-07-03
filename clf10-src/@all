@@ -1,0 +1,16 @@
+2+2W+mfence+clflushnextntna+WB+WB.litmus
+2+2W+mfence+clflushnextntna+WB+WC.litmus
+2+2W+mfence+clflushnextntna+WT+WB.litmus
+2+2W+mfence+clflushnextntna+WT+WC.litmus
+MP+clflushnextntna+mfence+WB+WB.litmus
+MP+clflushnextntna+mfence+WB+WT.litmus
+MP+clflushnextntna+mfence+WC+WB.litmus
+MP+clflushnextntna+mfence+WC+WT.litmus
+R+clflushnextntna+mfence+WB+WB.litmus
+R+clflushnextntna+mfence+WB+WT.litmus
+R+clflushnextntna+mfence+WC+WB.litmus
+R+clflushnextntna+mfence+WC+WT.litmus
+S+clflushnextntna+mfence+WB+WB.litmus
+S+clflushnextntna+mfence+WB+WT.litmus
+S+clflushnextntna+mfence+WC+WB.litmus
+S+clflushnextntna+mfence+WC+WT.litmus

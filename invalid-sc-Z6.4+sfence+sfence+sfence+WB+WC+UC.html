@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test Z6.4+sfence+sfence+sfence+WB+WC+UC</title>
+</head>
+<body>
+
+<h3><a id="tst@invalid-sc-Z6.4+sfence+sfence+sfence+WB+WC+UC">Test</a> <a href="invalid-sc-src/Z6.4+sfence+sfence+sfence+WB+WC+UC.litmus">Z6.4+sfence+sfence+sfence+WB+WC+UC</a></h3>
+<img src="invalid-sc-img/Z6.4+sfence+sfence+sfence+WB+WC+UC-00.png">
+<pre class="verbatim">X86_64 Z6.4+sfence+sfence+sfence+WB+WC+UC
+"SFencedWW Coe SFencedWR Fre SFencedWR Fre"
+MT=x:WB y:WC z:UC
+Cycle=Fre SFencedWR Fre SFencedWW Coe SFencedWR
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:z=T,2:z=F,2:x=T
+Com=Co Fr Fr
+Orig=SFencedWW Coe SFencedWR Fre SFencedWR Fre
+Align=
+{
+}
+ P0          | P1            | P2            ;
+ movl $1,(x) | movl $2,(y)   | movl $1,(z)   ;
+ sfence      | sfence        | sfence        ;
+ movl $1,(y) | movl (z),%eax | movl (x),%eax ;
+exists (1:rax=0 /\ 2:rax=0 /\ y=2)
+</pre></body>
+</html>

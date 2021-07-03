@@ -1,0 +1,16 @@
+X86_64 Z6.0+sfence+po+sfence+WC+WB+WB
+"SFencedWW Rfe PodRW Coe SFencedWR Fre"
+MT=x:WC y:WB z:WB
+Cycle=Rfe PodRW Coe SFencedWR Fre SFencedWW
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:z=W,2:z=F,2:x=T
+Com=Rf Co Fr
+Orig=SFencedWW Rfe PodRW Coe SFencedWR Fre
+Align=
+{
+}
+ P0          | P1            | P2            ;
+ movl $1,(x) | movl (y),%eax | movl $2,(z)   ;
+ sfence      | movl $1,(z)   | sfence        ;
+ movl $1,(y) |               | movl (x),%eax ;
+exists (z=2 /\ 1:rax=1 /\ 2:rax=0)

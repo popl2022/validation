@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test SB+clflushs+WC+WC</title>
+</head>
+<body>
+
+<h3><a id="tst@clf00-SB+clflushs+WC+WC">Test</a> <a href="clf00-src/SB+clflushs+WC+WC.litmus">SB+clflushs+WC+WC</a></h3>
+<img src="clf00-img/SB+clflushs+WC+WC-00.png">
+<pre class="verbatim">X86_64 SB+clflushs+WC+WC
+"ClFlushdWR Fre ClFlushdWR Fre"
+MT=x:WC y:WC
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=T,1:y=F,1:x=T
+Com=Fr Fr
+Orig=ClFlushdWR Fre ClFlushdWR Fre
+Align=
+{
+}
+ P0            | P1            ;
+ movl $1,(x)   | movl $1,(y)   ;
+ clflush (x)   | clflush (y)   ;
+ movl (y),%eax | movl (x),%eax ;
+exists (0:rax=0 /\ 1:rax=0)
+</pre></body>
+</html>

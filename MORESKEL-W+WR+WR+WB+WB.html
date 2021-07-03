@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test W+WR+WR+WB+WB</title>
+</head>
+<body>
+
+<h3><a id="tst@MORESKEL-W+WR+WR+WB+WB">Test</a> <a href="MORESKEL-src/W+WR+WR+WB+WB.litmus">W+WR+WR+WB+WB</a></h3>
+<img src="MORESKEL-img/W+WR+WR+WB+WB-00.png">
+<pre class="verbatim">X86_64 W+WR+WR+WB+WB
+"Coe PodWR Fre PodWR Fre"
+MT=x:WB,y:WB
+Cycle=Fre Coe PodWR Fre PodWR
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=1:x=F,1:y=T,2:y=F,2:x=T
+Com=Co Fr Fr
+Orig=Coe PodWR Fre PodWR Fre
+Align=
+{
+}
+ P0          | P1            | P2            ;
+ movl $1,(x) | movl $2,(x)   | movl $1,(y)   ;
+             | movl (y),%eax | movl (x),%eax ;
+exists (x=2 /\ 1:rax=0 /\ 2:rax=0)
+</pre></body>
+</html>

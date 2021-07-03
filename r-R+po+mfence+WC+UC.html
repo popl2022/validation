@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test R+po+mfence+WC+UC</title>
+</head>
+<body>
+
+<h3><a id="tst@r-R+po+mfence+WC+UC">Test</a> <a href="r-src/R+po+mfence+WC+UC.litmus">R+po+mfence+WC+UC</a></h3>
+<img src="r-img/R+po+mfence+WC+UC-00.png">
+<pre class="verbatim">X86_64 R+po+mfence+WC+UC
+"PodWW Coe MFencedWR Fre"
+MT=x:WC y:UC
+Cycle=Fre PodWW Coe MFencedWR
+Relax=MFencedWR
+Safe=Fre Coe PodWW
+Generator=diy7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=T
+Com=Co Fr
+Orig=PodWW Coe MFencedWR Fre
+Align=
+{
+}
+ P0          | P1            ;
+ movl $1,(x) | movl $2,(y)   ;
+ movl $1,(y) | mfence        ;
+             | movl (x),%eax ;
+exists (y=2 /\ 1:rax=0)
+</pre></body>
+</html>

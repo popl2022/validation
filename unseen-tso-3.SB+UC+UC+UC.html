@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test 3.SB+UC+UC+UC</title>
+</head>
+<body>
+
+<h3><a id="tst@unseen-tso-3.SB+UC+UC+UC">Test</a> <a href="unseen-tso-src/3.SB+UC+UC+UC.litmus">3.SB+UC+UC+UC</a></h3>
+<img src="unseen-tso-img/3.SB+UC+UC+UC-00.png">
+<pre class="verbatim">X86_64 3.SB+UC+UC+UC
+"PodWR Fre PodWR Fre PodWR Fre"
+MT=x:UC,y:UC,z:UC
+Cycle=Fre PodWR Fre PodWR Fre PodWR
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=T,1:y=F,1:z=T,2:z=F,2:x=T
+Com=Fr Fr Fr
+Orig=PodWR Fre PodWR Fre PodWR Fre
+Align=
+{
+}
+ P0            | P1            | P2            ;
+ movl $1,(x)   | movl $1,(y)   | movl $1,(z)   ;
+ movl (y),%eax | movl (z),%eax | movl (x),%eax ;
+exists (0:rax=0 /\ 1:rax=0 /\ 2:rax=0)
+</pre></body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test LB+WC+WT+NT</title>
+</head>
+<body>
+
+<h3><a id="tst@NT-LB+WC+WT+NT">Test</a> <a href="NT-src/LB+WC+WT+NT.litmus">LB+WC+WT+NT</a></h3>
+<img src="NT-img/LB+WC+WT+NT-00.png">
+<pre class="verbatim">X86_64 LB+WC+WT+NT
+"PodRWNaNT RfeNTNa PodRWNaNT RfeNTNa"
+MT=x:WC y:WT
+Cycle=PodRWNaNT RfeNTNa PodRWNaNT RfeNTNa
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=W
+Com=Rf Rf
+Orig=PodRWNaNT RfeNTNa PodRWNaNT RfeNTNa
+Align=
+{
+0:rbx=y;
+1:rbx=x;
+}
+ P0                  | P1                  ;
+ movl (x),%eax       | movl (y),%eax       ;
+ movl $1,%ecx        | movl $1,%ecx        ;
+ movntil %ecx,(%rbx) | movntil %ecx,(%rbx) ;
+exists (x=1 /\ y=1 /\ 0:rax=1 /\ 1:rax=1)
+</pre></body>
+</html>

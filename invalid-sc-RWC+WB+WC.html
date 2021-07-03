@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test RWC+WB+WC</title>
+</head>
+<body>
+
+<h3><a id="tst@invalid-sc-RWC+WB+WC">Test</a> <a href="invalid-sc-src/RWC+WB+WC.litmus">RWC+WB+WC</a></h3>
+<img src="invalid-sc-img/RWC+WB+WC-00.png">
+<pre class="verbatim">X86_64 RWC+WB+WC
+"Rfe PodRR Fre PodWR Fre"
+MT=x:WB,y:WC
+Cycle=Rfe PodRR Fre PodWR Fre
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=1:x=F,1:y=T,2:y=F,2:x=T
+Com=Rf Fr Fr
+Orig=Rfe PodRR Fre PodWR Fre
+Align=
+{
+}
+ P0          | P1            | P2            ;
+ movl $1,(x) | movl (x),%eax | movl $1,(y)   ;
+             | movl (y),%ebx | movl (x),%eax ;
+exists (1:rax=1 /\ 1:rbx=0 /\ 2:rax=0)
+</pre></body>
+</html>

@@ -1,0 +1,18 @@
+X86_64 MP+WB+WB+NT
+"PodWWNTNT RfeNTNa PodRR FreNaNT"
+MT=x:WB y:WB
+Cycle=PodRR FreNaNT PodWWNTNT RfeNTNa
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=T
+Com=Rf Fr
+Orig=PodWWNTNT RfeNTNa PodRR FreNaNT
+Align=
+{
+0:rax=x; 0:rcx=y;
+}
+ P0                  | P1            ;
+ movl $1,%ebx        | movl (y),%eax ;
+ movntil %ebx,(%rax) | movl (x),%ebx ;
+ movl $1,%edx        |               ;
+ movntil %edx,(%rcx) |               ;
+exists (1:rax=1 /\ 1:rbx=0 /\ x=1 /\ y=1)

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test WRR+2W+po+ponaa+WC+WB</title>
+</head>
+<body>
+
+<h3><a id="tst@ato-WRR+2W+po+ponaa+WC+WB">Test</a> <a href="ato-src/WRR+2W+po+ponaa+WC+WB.litmus">WRR+2W+po+ponaa+WC+WB</a></h3>
+<img src="ato-img/WRR+2W+po+ponaa+WC+WB-00.png">
+<pre class="verbatim">X86_64 WRR+2W+po+ponaa+WC+WB
+"Rfe PodRR Fre PodWWNaA CoeANa"
+MT=x:WC y:WB
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=1:x=F,1:y=T,2:y=F,2:x=W
+Com=Rf Fr Co
+Orig=Rfe PodRR Fre PodWWNaA CoeANa
+Align=
+{
+}
+ P0          | P1            | P2             ;
+ movl $2,(x) | movl (x),%eax | movl $1,(y)    ;
+             | movl (y),%ebx | movl $1,%eax   ;
+             |               | xchgl (x),%eax ;
+exists (x=2 /\ 1:rax=2 /\ 1:rbx=0 /\ 2:rax=0)
+</pre></body>
+</html>

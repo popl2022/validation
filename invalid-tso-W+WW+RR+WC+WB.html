@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test W+WW+RR+WC+WB</title>
+</head>
+<body>
+
+<h3><a id="tst@invalid-tso-W+WW+RR+WC+WB">Test</a> <a href="invalid-tso-src/W+WW+RR+WC+WB.litmus">W+WW+RR+WC+WB</a></h3>
+<img src="invalid-tso-img/W+WW+RR+WC+WB-00.png"> <img src="invalid-tso-img/W+WW+RR+WC+WB-01.png"> <img src="invalid-tso-img/W+WW+RR+WC+WB-02.png">
+<pre class="verbatim">X86_64 W+WW+RR+WC+WB
+"Coe PodWW Rfe PodRR Fre"
+MT=x:WC,y:WB
+Cycle=Rfe PodRR Fre Coe PodWW
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=1:x=F,1:y=W,2:y=F,2:x=T
+Com=Co Rf Fr
+Orig=Coe PodWW Rfe PodRR Fre
+Align=
+{
+}
+ P0          | P1          | P2            ;
+ movl $1,(x) | movl $2,(x) | movl (y),%eax ;
+             | movl $1,(y) | movl (x),%ebx ;
+exists (2:rax=1 /\ 2:rbx=0 /\ x=1) \/ (2:rax=1 /\ 2:rbx=0 /\ x=2) \/ (2:rax=1 /\ 2:rbx=1 /\ x=2)
+</pre></body>
+</html>

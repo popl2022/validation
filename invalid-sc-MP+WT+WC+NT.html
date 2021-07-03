@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test MP+WT+WC+NT</title>
+</head>
+<body>
+
+<h3><a id="tst@invalid-sc-MP+WT+WC+NT">Test</a> <a href="invalid-sc-src/MP+WT+WC+NT.litmus">MP+WT+WC+NT</a></h3>
+<img src="invalid-sc-img/MP+WT+WC+NT-00.png">
+<pre class="verbatim">X86_64 MP+WT+WC+NT
+"PodWWNTNT RfeNTNa PodRR FreNaNT"
+MT=x:WT y:WC
+Cycle=PodRR FreNaNT PodWWNTNT RfeNTNa
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=T
+Com=Rf Fr
+Orig=PodWWNTNT RfeNTNa PodRR FreNaNT
+Align=
+{
+0:rax=x; 0:rcx=y;
+}
+ P0                  | P1            ;
+ movl $1,%ebx        | movl (y),%eax ;
+ movntil %ebx,(%rax) | movl (x),%ebx ;
+ movl $1,%edx        |               ;
+ movntil %edx,(%rcx) |               ;
+exists (1:rax=1 /\ 1:rbx=0 /\ x=1 /\ y=1)
+</pre></body>
+</html>

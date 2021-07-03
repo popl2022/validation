@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test SB+sfences+UC+WT</title>
+</head>
+<body>
+
+<h3><a id="tst@invalid-tso-SB+sfences+UC+WT">Test</a> <a href="invalid-tso-src/SB+sfences+UC+WT.litmus">SB+sfences+UC+WT</a></h3>
+<img src="invalid-tso-img/SB+sfences+UC+WT-00.png">
+<pre class="verbatim">X86_64 SB+sfences+UC+WT
+"SFencedWR Fre SFencedWR Fre"
+MT=x:UC y:WT
+Cycle=Fre SFencedWR Fre SFencedWR
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=T,1:y=F,1:x=T
+Com=Fr Fr
+Orig=SFencedWR Fre SFencedWR Fre
+Align=
+{
+}
+ P0            | P1            ;
+ movl $1,(x)   | movl $1,(y)   ;
+ sfence        | sfence        ;
+ movl (y),%eax | movl (x),%eax ;
+exists (0:rax=0 /\ 1:rax=0)
+</pre></body>
+</html>

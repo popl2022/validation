@@ -1,0 +1,17 @@
+X86_64 SB+pontnts
+"PodWRNTNT FreNTNT PodWRNTNT FreNTNT"
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=T,1:y=F,1:x=T
+Com=Fr Fr
+Orig=PodWRNTNT FreNTNT PodWRNTNT FreNTNT
+Align=y:16,x:16
+{
+0:rax=x; 0:rcx=y;
+1:rax=y; 1:rcx=x;
+}
+ P0                   | P1                   ;
+ movl $1,%ebx         | movl $1,%ebx         ;
+ movntil %ebx,(%rax)  | movntil %ebx,(%rax)  ;
+ movntdqa (%rcx),xmm0 | movntdqa (%rcx),xmm0 ;
+ movd xmm0,%edx       | movd xmm0,%edx       ;
+exists (0:rdx=0 /\ 1:rdx=0)

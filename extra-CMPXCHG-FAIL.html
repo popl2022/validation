@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test CMPXCHG-FAIL</title>
+</head>
+<body>
+
+<h3><a id="tst@extra-CMPXCHG-FAIL">Test</a> <a href="extra-src/CMPXCHG-FAIL.litmus">CMPXCHG-FAIL</a></h3>
+<img src="extra-img/CMPXCHG-FAIL-00.png">
+<pre class="verbatim">X86_64 CMPXCHG-FAIL
+{
+int x;
+int y;
+0:rax=2;
+0:rbx=1;
+}
+
+ P0                     | P1             ;
+ movl $1,(x)            | movl $1,(y)    ;
+ lock; cmpxchg (z),%ebx | mfence         ;
+ movl (y),%ecx          | movl (x),%ecx  ;
+exists (z=0 /\ 0:rcx=0 /\ 1:rcx=0)
+</pre></body>
+</html>

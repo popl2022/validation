@@ -1,0 +1,18 @@
+X86_64 MP+clflushntnt+mfence+UC+WT
+"ClFlushdWWNTNT RfeNTNa MFencedRR FreNaNT"
+MT=x:UC y:WT
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=T
+Com=Rf Fr
+Orig=ClFlushdWWNTNT RfeNTNa MFencedRR FreNaNT
+Align=
+{
+0:rax=x; 0:rcx=y;
+}
+ P0                  | P1            ;
+ movl $1,%ebx        | movl (y),%eax ;
+ movntil %ebx,(%rax) | mfence        ;
+ clflush (%rax)      | movl (x),%ebx ;
+ movl $1,%edx        |               ;
+ movntil %edx,(%rcx) |               ;
+exists (1:rax=1 /\ 1:rbx=0)

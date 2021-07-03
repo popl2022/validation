@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test WRR+2W+pos+posntna+WB</title>
+</head>
+<body>
+
+<h3><a id="tst@Teraram-WRR+2W+pos+posntna+WB">Test</a> <a href="Teraram-src/WRR+2W+pos+posntna+WB.litmus">WRR+2W+pos+posntna+WB</a></h3>
+<img src="Teraram-img/WRR+2W+pos+posntna+WB-00.png">
+<pre class="verbatim">X86_64 WRR+2W+pos+posntna+WB
+"Rfe PosRR FreNaNT PosWWNTNa Coe"
+MT=x:WB
+Cycle=Rfe PosRR FreNaNT PosWWNTNa Coe
+Generator=diyone7 (version 7.56+02~dev)
+Com=Rf Fr Co
+Orig=Rfe PosRR FreNaNT PosWWNTNa Coe
+Align=
+{
+2:rax=x;
+}
+ P0          | P1            | P2                  ;
+ movl $1,(x) | movl (x),%eax | movl $2,%ebx        ;
+             | movl (x),%ebx | movntil %ebx,(%rax) ;
+             | movl (x),%ecx | movl $3,(x)         ;
+             |               | movl (x),%ecx       ;
+exists (1:rax=2 /\ 1:rbx=1 /\ 1:rcx=1 /\ 2:rcx=1 /\ x=1)
+</pre></body>
+</html>

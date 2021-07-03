@@ -1,0 +1,16 @@
+X86_64 ISA2+sfence+po+po+WC+WC+WC
+"SFencedWW Rfe PodRW Rfe PodRR Fre"
+MT=x:WC y:WC z:WC
+Cycle=Rfe PodRW Rfe PodRR Fre SFencedWW
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:z=W,2:z=F,2:x=T
+Com=Rf Rf Fr
+Orig=SFencedWW Rfe PodRW Rfe PodRR Fre
+Align=
+{
+}
+ P0          | P1            | P2            ;
+ movl $1,(x) | movl (y),%eax | movl (z),%eax ;
+ sfence      | movl $1,(z)   | movl (x),%ebx ;
+ movl $1,(y) |               |               ;
+exists (1:rax=1 /\ 2:rax=1 /\ 2:rbx=0)

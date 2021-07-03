@@ -1,0 +1,18 @@
+X86_64 2+2W+posntnas+WB
+"PosWWNTNa CoeNaNT PosWWNTNa CoeNaNT"
+MT=x:WB
+Cycle=CoeNaNT PosWWNTNa CoeNaNT PosWWNTNa
+Generator=diyone7 (version 7.56+02~dev)
+Com=Co Co
+Orig=PosWWNTNa CoeNaNT PosWWNTNa CoeNaNT
+Align=
+{
+0:rax=x;
+1:rax=x;
+}
+ P0                  | P1                  ;
+ movl $1,%ebx        | movl $3,%ebx        ;
+ movntil %ebx,(%rax) | movntil %ebx,(%rax) ;
+ movl $2,(x)         | movl $4,(x)         ;
+ movl (x),%ecx       | movl (x),%ecx       ;
+exists x=1 /\ (0:rcx=0 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4) \/ 0:rcx=1 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=2 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4) \/ 0:rcx=3 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=4 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4)) \/ x=3 /\ (0:rcx=0 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=1 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4) \/ 0:rcx=2 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=3 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4) \/ 0:rcx=4 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0)) \/ x=2 /\ (0:rcx=0 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4) \/ 0:rcx=1 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=3 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4) \/ 0:rcx=4 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=2 /\ (1:rcx=0 \/ 1:rcx=3)) \/ x=4 /\ (0:rcx=0 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=1 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4) \/ 0:rcx=2 /\ (1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=3 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3) \/ 0:rcx=4 /\ (1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0))

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test SB+mfence+clflushopt+WB+WB</title>
+</head>
+<body>
+
+<h3><a id="tst@invalid-tso-SB+mfence+clflushopt+WB+WB">Test</a> <a href="invalid-tso-src/SB+mfence+clflushopt+WB+WB.litmus">SB+mfence+clflushopt+WB+WB</a></h3>
+<img src="invalid-tso-img/SB+mfence+clflushopt+WB+WB-00.png">
+<pre class="verbatim">X86_64 SB+mfence+clflushopt+WB+WB
+"MFencedWR Fre ClFlushOptdWR Fre"
+MT=x:WB y:WB
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=T,1:y=F,1:x=T
+Com=Fr Fr
+Orig=MFencedWR Fre ClFlushOptdWR Fre
+Align=
+{
+}
+ P0            | P1             ;
+ movl $1,(x)   | movl $1,(y)    ;
+ mfence        | clflushopt (y) ;
+ movl (y),%eax | movl (x),%eax  ;
+exists (0:rax=0 /\ 1:rax=0)
+</pre></body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test WRW+2W+poss+NT+WB</title>
+</head>
+<body>
+
+<h3><a id="tst@unseen-sc-WRW+2W+poss+NT+WB">Test</a> <a href="unseen-sc-src/WRW+2W+poss+NT+WB.litmus">WRW+2W+poss+NT+WB</a></h3>
+<img src="unseen-sc-img/WRW+2W+poss+NT+WB-00.png">
+<pre class="verbatim">X86_64 WRW+2W+poss+NT+WB
+"RfeNTNa PosRW Coe PosWW CoeNaNT"
+MT=x:WB
+Cycle=Coe PosWW CoeNaNT RfeNTNa PosRW
+Generator=diyone7 (version 7.56+02~dev)
+Com=Rf Co Co
+Orig=RfeNTNa PosRW Coe PosWW CoeNaNT
+Align=
+{
+0:rax=x;
+}
+ P0                  | P1            | P2            ;
+ movl $1,%ebx        | movl (x),%eax | movl $3,(x)   ;
+ movntil %ebx,(%rax) | movl $2,(x)   | movl $4,(x)   ;
+                     | movl (x),%ebx | movl (x),%eax ;
+exists (1:rax=3 /\ 1:rbx=4 /\ 2:rax=1 /\ x=1)
+</pre></body>
+</html>

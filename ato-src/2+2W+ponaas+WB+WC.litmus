@@ -1,0 +1,16 @@
+X86_64 2+2W+ponaas+WB+WC
+"PodWWNaA CoeANa PodWWNaA CoeANa"
+MT=x:WB,y:WC
+Cycle=PodWWNaA CoeANa PodWWNaA CoeANa
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=W
+Com=Co Co
+Orig=PodWWNaA CoeANa PodWWNaA CoeANa
+Align=
+{
+}
+ P0             | P1             ;
+ movl $2,(x)    | movl $2,(y)    ;
+ movl $1,%eax   | movl $1,%eax   ;
+ xchgl (y),%eax | xchgl (x),%eax ;
+exists (x=2 /\ y=2 /\ 0:rax=0 /\ 1:rax=0)

@@ -1,0 +1,69 @@
+"x86 TSO + Memory types"
+
+include "x86fences.cat"
+include "cos.cat"
+
+(* Coherence-after *)
+let ca = fr | co
+
+(* Observed-by *)
+let obs = rfe | fre | coe
+
+(* Locally-ordered-before *)
+
+(*
+  Follow paper names  wich differ from initial Cat names.
+  Cat event sets correspond to the presence of a property,
+  (memory type, issued from non-temporal instruction). Paper
+  names are shorter and sometimes have additional semantical contents.
+  For instance, paper W stands  for non-non-temporal names,
+  while Cat W stands for all writes.
+*)  
+let WB = WB|(M\(WT|WC|UC)) (* Unmarked locations are Write-Back *)
+let E = R|W|MFENCE|SFENCE|MFENCE|ClFlush|ClFlushOpt (* All events *)
+let MF=MFENCE   (* Abbreviate *)
+and SF = SFENCE (* Abbreviate *)
+and U = X       (* Rename *)
+and C = WT | WB (* Cached *)
+and FL = ClFlush    (* Abbreviate *)
+and FO = ClFlushOpt (* Abbreviate *)
+
+let RC = R&C
+
+let NTW = W&NT&(WB|WC|WT) (* Paper restricts NTW to cached and WC pages *)
+let W = W\NTW             (* Paper restricts W to non-non-temporal *)
+
+(* Transliterate paper declarative model *)
+let rec lob = 0
+ | [E];po;[MF|X] | [MF|X];po;[E] (* Strong fences, explicit and implicit *)
+ | [E];po;[SFENCE] | [SF];po;[E\RC]
+ | [R];po;[E]
+ | [E];po;[UC] |(([UC];po;[E])\((W&UC) * RC))
+ | [E];po;[W&WT] | [W&WT];po;[E\RC]
+ | [E];po;[R&WC]
+ | [W&WB];po;[W&WB]
+ | [W|NTW];po-loc;[W|NTW]
+ | [W\NTW];po;[R\RC]
+ | [FL|W|NTW];po;[FL] | [FL];po;[FL|W|NTW]
+ | [W|NTW];po-loc;[FO]
+
+(* Ordered-before *)
+let rec ob = obs; si
+        | lob
+        | ob; ob
+
+(* Internal visibility requirement *)
+empty (rfi|fri|coi)\po as internal
+
+(* Atomicity requirement *)
+empty rmw & (fre;coe) as atomic
+
+(* External visibility requirement *)
+irreflexive ob as external
+
+let wc = WC*WC
+and wb = WB*WB
+and wt = WT*WT
+and uc = UC*UC
+and ntnt = NT*NT
+

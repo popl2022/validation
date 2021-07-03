@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test 2+2W+UC+UC</title>
+</head>
+<body>
+
+<h3><a id="tst@uc-2+2W+UC+UC">Test</a> <a href="uc-src/2+2W+UC+UC.litmus">2+2W+UC+UC</a></h3>
+<img src="uc-img/2+2W+UC+UC-00.png">
+<pre class="verbatim">X86_64 2+2W+UC+UC
+"PodWW Coe PodWW Coe"
+MT=x:UC y:UC
+Cycle=Coe PodWW Coe PodWW
+Generator=diycross7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=W
+Com=Co Co
+Orig=PodWW Coe PodWW Coe
+Align=
+{
+}
+ P0          | P1          ;
+ movl $2,(x) | movl $2,(y) ;
+ movl $1,(y) | movl $1,(x) ;
+exists (x=2 /\ y=2)
+</pre></body>
+</html>

@@ -1,0 +1,16 @@
+X86_64 Z6.4+poanas+WB+UC+WC
+"PodWWANa CoeNaA PodWRANa FreNaA PodWRANa FreNaA"
+MT=x:WB,y:UC,z:WC
+Cycle=FreNaA PodWWANa CoeNaA PodWRANa FreNaA PodWRANa
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:z=T,2:z=F,2:x=T
+Com=Co Fr Fr
+Orig=PodWWANa CoeNaA PodWRANa FreNaA PodWRANa FreNaA
+Align=
+{
+}
+ P0             | P1             | P2             ;
+ movl $1,%eax   | movl $2,%eax   | movl $1,%eax   ;
+ xchgl (x),%eax | xchgl (y),%eax | xchgl (z),%eax ;
+ movl $1,(y)    | movl (z),%ebx  | movl (x),%ebx  ;
+exists (x=1 /\ y=2 /\ z=1 /\ 0:rax=0 /\ 1:rax=1 /\ 1:rbx=0 /\ 2:rax=0 /\ 2:rbx=0)

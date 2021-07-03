@@ -1,0 +1,8 @@
+2+2W+mfence+clflushopt+WC+WC.litmus
+MP+clflushopt+mfence+WC+WC.litmus
+R+clflushopt+mfence+WC+WC.litmus
+S+clflushopt+mfence+WC+WC.litmus
+2+2W+mfence+clflushoptother+WC+WC.litmus
+MP+clflushoptother+mfence+WC+WC.litmus
+R+clflushoptother+mfence+WC+WC.litmus
+S+clflushoptother+mfence+WC+WC.litmus

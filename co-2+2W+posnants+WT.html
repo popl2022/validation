@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test 2+2W+posnants+WT</title>
+</head>
+<body>
+
+<h3><a id="tst@co-2+2W+posnants+WT">Test</a> <a href="co-src/2+2W+posnants+WT.litmus">2+2W+posnants+WT</a></h3>
+<img src="co-img/2+2W+posnants+WT-00.png"> <img src="co-img/2+2W+posnants+WT-01.png"> <img src="co-img/2+2W+posnants+WT-02.png"> <img src="co-img/2+2W+posnants+WT-03.png">&#X2026;
+<pre class="verbatim">X86_64 2+2W+posnants+WT
+"PosWWNaNT CoeNTNa PosWWNaNT CoeNTNa"
+MT=x:WT
+Cycle=PosWWNaNT CoeNTNa PosWWNaNT CoeNTNa
+Generator=diyone7 (version 7.56+02~dev)
+Com=Co Co
+Orig=PosWWNaNT CoeNTNa PosWWNaNT CoeNTNa
+Align=
+{
+0:rax=x;
+1:rax=x;
+}
+ P0                  | P1                  ;
+ movl $1,(x)         | movl $3,(x)         ;
+ movl $2,%ebx        | movl $4,%ebx        ;
+ movntil %ebx,(%rax) | movntil %ebx,(%rax) ;
+ movl (x),%ecx       | movl (x),%ecx       ;
+exists x=1 /\ (0:rcx=0 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4) \/ 0:rcx=1 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=2 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4) \/ 0:rcx=3 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=4 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4)) \/ x=3 /\ (0:rcx=0 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=1 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4) \/ 0:rcx=2 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=3 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4) \/ 0:rcx=4 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0)) \/ x=2 /\ (0:rcx=0 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4) \/ 0:rcx=1 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=3 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4) \/ 0:rcx=4 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=2 /\ (1:rcx=0 \/ 1:rcx=3)) \/ x=4 /\ (0:rcx=0 /\ (1:rcx=4 \/ 1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=1 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3 \/ 1:rcx=4) \/ 0:rcx=2 /\ (1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0) \/ 0:rcx=3 /\ (1:rcx=0 \/ 1:rcx=1 \/ 1:rcx=2 \/ 1:rcx=3) \/ 0:rcx=4 /\ (1:rcx=3 \/ 1:rcx=2 \/ 1:rcx=1 \/ 1:rcx=0))
+</pre></body>
+</html>

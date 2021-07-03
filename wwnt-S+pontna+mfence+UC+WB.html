@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test S+pontna+mfence+UC+WB</title>
+</head>
+<body>
+
+<h3><a id="tst@wwnt-S+pontna+mfence+UC+WB">Test</a> <a href="wwnt-src/S+pontna+mfence+UC+WB.litmus">S+pontna+mfence+UC+WB</a></h3>
+<img src="wwnt-img/S+pontna+mfence+UC+WB-00.png">
+<pre class="verbatim">X86_64 S+pontna+mfence+UC+WB
+"PodWWNTNa Rfe MFencedRW CoeNaNT"
+MT=x:UC y:WB
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=W
+Com=Rf Co
+Orig=PodWWNTNa Rfe MFencedRW CoeNaNT
+Align=
+{
+0:rax=x;
+}
+ P0                  | P1            ;
+ movl $2,%ebx        | movl (y),%eax ;
+ movntil %ebx,(%rax) | mfence        ;
+ movl $1,(y)         | movl $1,(x)   ;
+exists (x=2 /\ 1:rax=1)
+</pre></body>
+</html>

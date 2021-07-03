@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test W+WW+WR+UC+WB</title>
+</head>
+<body>
+
+<h3><a id="tst@unseen-tso-W+WW+WR+UC+WB">Test</a> <a href="unseen-tso-src/W+WW+WR+UC+WB.litmus">W+WW+WR+UC+WB</a></h3>
+<img src="unseen-tso-img/W+WW+WR+UC+WB-00.png"> <img src="unseen-tso-img/W+WW+WR+UC+WB-01.png"> <img src="unseen-tso-img/W+WW+WR+UC+WB-02.png">
+<pre class="verbatim">X86_64 W+WW+WR+UC+WB
+"Coe PodWW Coe PodWR Fre"
+MT=x:UC,y:WB
+Cycle=Fre Coe PodWW Coe PodWR
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=1:x=F,1:y=W,2:y=F,2:x=T
+Com=Co Co Fr
+Orig=Coe PodWW Coe PodWR Fre
+Align=
+{
+}
+ P0          | P1          | P2            ;
+ movl $1,(x) | movl $2,(x) | movl $2,(y)   ;
+             | movl $1,(y) | movl (x),%eax ;
+exists (2:rax=0 /\ x=1 /\ y=2) \/ (2:rax=0 /\ x=2 /\ y=2) \/ (2:rax=1 /\ x=2 /\ y=2)
+</pre></body>
+</html>

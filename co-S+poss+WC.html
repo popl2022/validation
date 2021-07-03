@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test S+poss+WC</title>
+</head>
+<body>
+
+<h3><a id="tst@co-S+poss+WC">Test</a> <a href="co-src/S+poss+WC.litmus">S+poss+WC</a></h3>
+<img src="co-img/S+poss+WC-00.png"> <img src="co-img/S+poss+WC-01.png"> <img src="co-img/S+poss+WC-02.png"> <img src="co-img/S+poss+WC-03.png">&#X2026;
+<pre class="verbatim">X86_64 S+poss+WC
+"PosWW Rfe PosRW Coe"
+MT=x:WC
+Cycle=Rfe PosRW Coe PosWW
+Generator=diyone7 (version 7.56+02~dev)
+Com=Rf Co
+Orig=PosWW Rfe PosRW Coe
+Align=
+{
+}
+ P0          | P1            ;
+ movl $1,(x) | movl (x),%eax ;
+ movl $2,(x) | movl $3,(x)   ;
+             | movl (x),%ebx ;
+exists x=1 /\ (1:rax=0 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2 \/ 1:rbx=3) \/ 1:rax=1 /\ (1:rbx=3 \/ 1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0) \/ 1:rax=2 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2 \/ 1:rbx=3) \/ 1:rax=3 /\ (1:rbx=3 \/ 1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0)) \/ x=3 /\ (1:rax=3 /\ (1:rbx=3 \/ 1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0) \/ 1:rax=0 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2) \/ 1:rax=1 /\ (1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0) \/ 1:rax=2 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2)) \/ x=2 /\ (1:rax=2 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2 \/ 1:rbx=3) \/ 1:rax=3 /\ (1:rbx=3 \/ 1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0) \/ 1:rax=1 /\ (1:rbx=0 \/ 1:rbx=1) \/ 1:rax=0 /\ 1:rbx=0)
+</pre></body>
+</html>

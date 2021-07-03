@@ -1,0 +1,15 @@
+X86_64 Z6.2+WC+WB+WB
+"PodWW Rfe PodRW Rfe PodRW Coe"
+MT=x:WC,y:WB,z:WB
+Cycle=Rfe PodRW Rfe PodRW Coe PodWW
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:z=W,2:z=F,2:x=W
+Com=Rf Rf Co
+Orig=PodWW Rfe PodRW Rfe PodRW Coe
+Align=
+{
+}
+ P0          | P1            | P2            ;
+ movl $2,(x) | movl (y),%eax | movl (z),%eax ;
+ movl $1,(y) | movl $1,(z)   | movl $1,(x)   ;
+exists (1:rax=1 /\ 2:rax=1 /\ x=2)

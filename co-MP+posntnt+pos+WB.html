@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test MP+posntnt+pos+WB</title>
+</head>
+<body>
+
+<h3><a id="tst@co-MP+posntnt+pos+WB">Test</a> <a href="co-src/MP+posntnt+pos+WB.litmus">MP+posntnt+pos+WB</a></h3>
+<img src="co-img/MP+posntnt+pos+WB-00.png"> <img src="co-img/MP+posntnt+pos+WB-01.png"> <img src="co-img/MP+posntnt+pos+WB-02.png"> <img src="co-img/MP+posntnt+pos+WB-03.png">&#X2026;
+<pre class="verbatim">X86_64 MP+posntnt+pos+WB
+"PosWWNTNT RfeNTNa PosRR FreNaNT"
+MT=x:WB
+Cycle=PosRR FreNaNT PosWWNTNT RfeNTNa
+Generator=diyone7 (version 7.56+02~dev)
+Com=Rf Fr
+Orig=PosWWNTNT RfeNTNa PosRR FreNaNT
+Align=
+{
+0:rax=x;
+}
+ P0                  | P1            ;
+ movl $1,%ebx        | movl (x),%eax ;
+ movntil %ebx,(%rax) | movl (x),%ebx ;
+ movl $2,%ecx        |               ;
+ movntil %ecx,(%rax) |               ;
+exists x=1 /\ (1:rax=0 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2) \/ 1:rax=1 /\ (1:rbx=2 \/ 1:rbx=1 \/ 1:rbx=0) \/ 1:rax=2 /\ (1:rbx=0 \/ 1:rbx=1 \/ 1:rbx=2)) \/ x=2 /\ (1:rax=2 /\ (1:rbx=1 \/ 1:rbx=0) \/ 1:rax=1 /\ 1:rbx=0)
+</pre></body>
+</html>

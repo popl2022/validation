@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test Z6.2+WC+WC+WC</title>
+</head>
+<body>
+
+<h3><a id="tst@allowed-Z6.2+WC+WC+WC">Test</a> <a href="allowed-src/Z6.2+WC+WC+WC.litmus">Z6.2+WC+WC+WC</a></h3>
+<img src="allowed-img/Z6.2+WC+WC+WC-00.png">
+<pre class="verbatim">X86_64 Z6.2+WC+WC+WC
+"PodWW Rfe PodRW Rfe PodRW Coe"
+MT=x:WC,y:WC,z:WC
+Cycle=Rfe PodRW Rfe PodRW Coe PodWW
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:z=W,2:z=F,2:x=W
+Com=Rf Rf Co
+Orig=PodWW Rfe PodRW Rfe PodRW Coe
+Align=
+{
+}
+ P0          | P1            | P2            ;
+ movl $2,(x) | movl (y),%eax | movl (z),%eax ;
+ movl $1,(y) | movl $1,(z)   | movl $1,(x)   ;
+exists (x=2 /\ 1:rax=1 /\ 2:rax=1)
+</pre></body>
+</html>

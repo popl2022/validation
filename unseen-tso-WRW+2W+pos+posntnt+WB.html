@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test WRW+2W+pos+posntnt+WB</title>
+</head>
+<body>
+
+<h3><a id="tst@unseen-tso-WRW+2W+pos+posntnt+WB">Test</a> <a href="unseen-tso-src/WRW+2W+pos+posntnt+WB.litmus">WRW+2W+pos+posntnt+WB</a></h3>
+<img src="unseen-tso-img/WRW+2W+pos+posntnt+WB-00.png">
+<pre class="verbatim">X86_64 WRW+2W+pos+posntnt+WB
+"Rfe PosRW CoeNaNT PosWWNTNT CoeNTNa"
+MT=x:WB
+Cycle=Rfe PosRW CoeNaNT PosWWNTNT CoeNTNa
+Generator=diyone7 (version 7.56+02~dev)
+Com=Rf Co Co
+Orig=Rfe PosRW CoeNaNT PosWWNTNT CoeNTNa
+Align=
+{
+2:rax=x;
+}
+ P0          | P1            | P2                  ;
+ movl $1,(x) | movl (x),%eax | movl $3,%ebx        ;
+             | movl $2,(x)   | movntil %ebx,(%rax) ;
+             | movl (x),%ebx | movl $4,%ecx        ;
+             |               | movntil %ecx,(%rax) ;
+             |               | movl (x),%edx       ;
+exists (1:rax=3 /\ 1:rbx=1 /\ 2:rdx=2 /\ x=1)
+</pre></body>
+</html>

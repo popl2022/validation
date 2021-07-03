@@ -1,0 +1,16 @@
+X86_64 MP+poana+po+WC+WB
+"PodWWANa Rfe PodRR FreNaA"
+MT=x:WC,y:WB
+Cycle=Rfe PodRR FreNaA PodWWANa
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=T
+Com=Rf Fr
+Orig=PodWWANa Rfe PodRR FreNaA
+Align=
+{
+}
+ P0             | P1            ;
+ movl $1,%eax   | movl (y),%eax ;
+ xchgl (x),%eax | movl (x),%ebx ;
+ movl $1,(y)    |               ;
+exists (x=1 /\ 0:rax=0 /\ 1:rax=1 /\ 1:rbx=0)

@@ -1,0 +1,16 @@
+X86_64 MP+sfence+po+WC+WC
+"SFencedWW Rfe PodRR Fre"
+MT=x:WC y:WC
+Cycle=Rfe PodRR Fre SFencedWW
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:x=T
+Com=Rf Fr
+Orig=SFencedWW Rfe PodRR Fre
+Align=
+{
+}
+ P0          | P1            ;
+ movl $1,(x) | movl (y),%eax ;
+ sfence      | movl (x),%ebx ;
+ movl $1,(y) |               ;
+exists (1:rax=1 /\ 1:rbx=0)

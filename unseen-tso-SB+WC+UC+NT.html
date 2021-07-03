@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test SB+WC+UC+NT</title>
+</head>
+<body>
+
+<h3><a id="tst@unseen-tso-SB+WC+UC+NT">Test</a> <a href="unseen-tso-src/SB+WC+UC+NT.litmus">SB+WC+UC+NT</a></h3>
+<img src="unseen-tso-img/SB+WC+UC+NT-00.png">
+<pre class="verbatim">X86_64 SB+WC+UC+NT
+"PodWRNTNa FreNaNT PodWRNTNa FreNaNT"
+MT=x:WC y:UC
+Cycle=FreNaNT PodWRNTNa FreNaNT PodWRNTNa
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=T,1:y=F,1:x=T
+Com=Fr Fr
+Orig=PodWRNTNa FreNaNT PodWRNTNa FreNaNT
+Align=
+{
+0:rax=x;
+1:rax=y;
+}
+ P0                  | P1                  ;
+ movl $1,%ebx        | movl $1,%ebx        ;
+ movntil %ebx,(%rax) | movntil %ebx,(%rax) ;
+ movl (y),%ecx       | movl (x),%ecx       ;
+exists (0:rcx=0 /\ 1:rcx=0 /\ x=1 /\ y=1)
+</pre></body>
+</html>

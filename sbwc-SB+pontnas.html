@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<link rel="stylesheet" type="text/css" href="text.css">
+<title>Test SB+pontnas</title>
+</head>
+<body>
+
+<h3><a id="tst@sbwc-SB+pontnas">Test</a> <a href="sbwc-src/SB+pontnas.litmus">SB+pontnas</a></h3>
+<img src="sbwc-img/SB+pontnas-00.png">
+<pre class="verbatim">X86_64 SB+pontnas
+"PodWRNTNa FreNaNT PodWRNTNa FreNaNT"
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=T,1:y=F,1:x=T
+Com=Fr Fr
+Orig=PodWRNTNa FreNaNT PodWRNTNa FreNaNT
+Align=
+{
+0:rax=x;
+1:rax=y;
+}
+ P0                  | P1                  ;
+ movl $1,%ebx        | movl $1,%ebx        ;
+ movntil %ebx,(%rax) | movntil %ebx,(%rax) ;
+ movl (y),%ecx       | movl (x),%ecx       ;
+exists (0:rcx=0 /\ 1:rcx=0)
+</pre></body>
+</html>

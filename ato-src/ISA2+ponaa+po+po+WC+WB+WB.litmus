@@ -1,0 +1,16 @@
+X86_64 ISA2+ponaa+po+po+WC+WB+WB
+"PodWWNaA RfeANa PodRW Rfe PodRR Fre"
+MT=x:WC,y:WB,z:WB
+Cycle=Rfe PodRR Fre PodWWNaA RfeANa PodRW
+Generator=diyone7 (version 7.56+02~dev)
+Prefetch=0:x=F,0:y=W,1:y=F,1:z=W,2:z=F,2:x=T
+Com=Rf Rf Fr
+Orig=PodWWNaA RfeANa PodRW Rfe PodRR Fre
+Align=
+{
+}
+ P0             | P1            | P2            ;
+ movl $1,(x)    | movl (y),%eax | movl (z),%eax ;
+ movl $1,%eax   | movl $1,(z)   | movl (x),%ebx ;
+ xchgl (y),%eax |               |               ;
+exists (y=1 /\ 0:rax=0 /\ 1:rax=1 /\ 2:rax=1 /\ 2:rbx=0)
