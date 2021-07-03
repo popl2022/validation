@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.35">
+<title>X86_64 Memory Type Tests
+</title>
+<link rel="stylesheet" type="text/css" href="text.css">
+</head>
+<body>
+<!--HEVEA command line is: /usr/local/bin/hevea -fix -O -I ../hva -o text.html text.tex -->
+<!--HACHA command line is: /usr/local/bin/hacha -tocbis -o index.html text.html -->
+<table class="title"><tr><td style="padding:1ex"><h1 class="titlemain">X86_64 Memory Type Tests</h1></td></tr>
+</table><p>This document explores the effect of X86_64&#XA0;<em>memory types</em>
+on memory model. It is available as <a href="x86-memtype.tgz">this archive</a>.</p><p>Some files are provided: model (<a href="NEW.cat"><span class="c003">NEW.cat</span></a>), models output (<a href="TSO"><span class="c003">TSO</span></a>, <a href="Model"><span class="c003">Model</span></a>),
+consolidated hardware logs (<a href="Hardware"><span class="c003">Hardware</span></a>) and litmus tests
+(<a href="src.tgz"><span class="c003">src.tgz</span></a>).</p><ul>
+<li><a href="tests.html">Test base and hardware description</a>
+</li><li><a href="hard.html">Comparing hardware results with the model</a>
+<ul>
+<li><a href="hard.html#nonetsinvalid">Invalid behaviours</a>
+</li><li><a href="hard.html#nonetsunseen">Behaviours allowed by the model and not observed</a>
+</li></ul>
+</li><li><a href="classical.html">Comparing hardware results with classical models</a>
+</li><li><a href="specific.html">Specific experiments</a>
+<ul>
+<li><a href="specific.html#SC">Uncached memory type and SC</a>
+</li><li><a href="specific.html#MPWC">Write combine memory type and the message passing litmus test</a>
+</li><li><a href="specific.html#SBWC">Write combine memory type and the store buffer litmus test</a>
+</li><li><a href="specific.html#WC">Write combine memory type and the TSO model</a>
+</li></ul>
+</li><li><a href="wr.html">Write to Read relaxations</a>
+<ul>
+<li><a href="wr.html#wruc">Read into uncached memory type</a>
+</li><li><a href="wr.html#wrwc">Read into write combining memory type</a>
+</li><li><a href="wr.html#wrwb">Read into write back memory type</a>
+</li><li><a href="wr.html#wcwt">Read into write through memory type</a>
+</li></ul>
+</li><li><a href="rr.html">Read to Read relaxations</a>
+</li><li><a href="rw.html">Read to Write relaxations</a>
+</li><li><a href="ww.html">Write to write relaxations</a>
+<ul>
+<li><a href="ww.html#wwall">All write to Write tests</a>
+</li><li><a href="ww.html#wwdiff">Presentation by tests</a>
+</li></ul>
+</li><li><a href="restore-sc.html">Restoring SC (or not)</a>
+<ul>
+<li><a href="restore-sc.html#simplesc">Simple SC violations</a>
+</li><li><a href="restore-sc.html#atomic">With atomic exchange</a>
+</li><li><a href="restore-sc.html#fence">With fences</a>
+</li><li><a href="restore-sc.html#sfence">With sfences</a>
+</li></ul>
+</li><li><a href="coherence.html">Coherence</a>
+</li><li><a href="clflush.html">Testing the <span class="c003">clflush</span> instruction</a>
+<ul>
+<li><a href="clflush.html#00">Series 00</a>
+</li><li><a href="clflush.html#01">Series 01</a>
+</li><li><a href="clflush.html#02">Series 02</a>
+</li><li><a href="clflush.html#03">Series 03</a>
+</li><li><a href="clflush.html#05">Series 05</a>
+</li><li><a href="clflush.html#06">Series 06</a>
+</li><li><a href="clflush.html#07">Series 07</a>
+</li><li><a href="clflush.html#08">Series 08</a>
+</li><li><a href="clflush.html#09">Series 09</a>
+</li><li><a href="clflush.html#10">Series 10</a>
+</li><li><a href="clflush.html#14">Series 14</a>
+</li><li><a href="clflush.html#15">Series 15</a>
+</li><li><a href="clflush.html#16">Series 16</a>
+</li><li><a href="clflush.html#17">Series 17</a>
+</li><li><a href="clflush.html#XX">More variation on non-temporal writes</a>
+</li></ul>
+</li><li><a href="machs.html">Specific behaviours for each machine</a>
+<ul>
+<li><a href="machs.html#coreI5dual">CoreI5-dual</a>
+</li><li><a href="machs.html#coreI5">CoreI5</a>
+</li><li><a href="machs.html#coreI7">CoreI7</a>
+</li><li><a href="machs.html#chianti">Chianti</a>
+</li><li><a href="machs.html#limoux">Limoux</a>
+</li><li><a href="machs.html#teraram">Teraram</a>
+</li><li><a href="machs.html#estephe">Estephe</a>
+</li><li><a href="machs.html#barsac">Barsac</a>
+</li></ul>
+</li><li><a href="misc.html">Miscellaneous</a>
+<ul>
+<li><a href="misc.html#cmpxchg">Compare exchange</a>
+</li><li><a href="misc.html#allnt">All writes in test are non-temporal writes (two thread tests)</a>
+</li></ul>
+</li><li><a href="new.html">New this round</a>
+</li></ul>
+<!--FOOTER-->
+</body>
+</html>
